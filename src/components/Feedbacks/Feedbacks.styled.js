@@ -40,3 +40,8 @@ export const StatisticItem = styled.p`
     text-transform: uppercase;
   }
 `;
+
+export const Message = styled.p`
+  font-size: 22px;
+  font-weight: 600;
+`;

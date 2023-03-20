@@ -5,7 +5,6 @@ import { StatisticItem } from './Feedbacks.styled';
 export const Statistics = ({ stats, total, positivePerc }) => {
   return (
     <>
-      <h2>Statistics</h2>
       {Object.keys(stats).map(stat => (
         <StatisticItem key={stat}>
           {stat}: {stats[stat]}
@@ -20,5 +19,5 @@ export const Statistics = ({ stats, total, positivePerc }) => {
 Statistics.propTypes = {
   stats: PropTypes.objectOf(PropTypes.number).isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
+  positivePerc: PropTypes.string.isRequired,
 };

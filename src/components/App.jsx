@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { FeedbacksAdd } from './Feedbacks/Buttons';
 import { Statistics } from './Feedbacks/Statistics';
 import { Wrapper } from './Feedbacks/Feedbacks.styled';
+import { Notification } from './Feedbacks/Notification';
+import { Section } from './Feedbacks/Section';
 
 export class App extends Component {
   static defaultProps = {
@@ -20,33 +22,40 @@ export class App extends Component {
     }));
   };
 
-  totalFeedback = () => {
+  countTotalFeedback = () => {
     return Object.values(this.state).reduce((acc, value) => {
       return (acc += value);
     }, 0);
   };
 
-  positiveFeedbackPerc = () => {
-    return this.totalFeedback() > 0
-      ? `${Math.round((this.state.good / this.totalFeedback()) * 100)}%`
+  countPositiveFeedbackPercentage = () => {
+    return this.countTotalFeedback() > 0
+      ? `${Math.round((this.state.good / this.countTotalFeedback()) * 100)}%`
       : `0%`;
   };
 
   render() {
     const names = Object.keys(this.state);
     const stats = this.state;
-    const total = this.totalFeedback();
-    const positivePerc = this.positiveFeedbackPerc();
+    const total = this.countTotalFeedback();
+    const positivePerc = this.countPositiveFeedbackPercentage();
 
     return (
       <Wrapper>
-        <h1>Please leave feedback</h1>
-        <FeedbacksAdd onAddFeedback={this.onAddFeedback} options={names} />
+        <Section title="Please leave feedback">
+          <FeedbacksAdd onAddFeedback={this.onAddFeedback} options={names} />
+        </Section>
 
         {total ? (
-          <Statistics stats={stats} total={total} positivePerc={positivePerc} />
+          <Section title="Statistics">
+            <Statistics
+              stats={stats}
+              total={total}
+              positivePerc={positivePerc}
+            />
+          </Section>
         ) : (
-          <h2>There is no feedback</h2>
+          <Notification message={'There is no feedback'} />
         )}
       </Wrapper>
     );
