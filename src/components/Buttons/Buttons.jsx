@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FeedbackBtn } from './Buttons.styled';
 
 export const FeedbacksAdd = ({ onAddFeedback, options }) => {
-  // console.log(onAddFeedback, options);
   return (
     <>
       {options.map(name => (

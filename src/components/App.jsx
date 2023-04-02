@@ -17,7 +17,6 @@ export const App = () => {
   };
 
   const onAddFeedback = value => {
-    // console.log(value);
     switch (value) {
       case 'good':
         setGood(good + 1);
