@@ -5,6 +5,6 @@ export const Wrapper = styled.div`
   padding: 30px;
   border-radius: 20px;
   margin: 50px auto;
-  background-color: rgb(201 193 233);
+  background-color: rgb(193 233 217);
   justify-content: center;
 `;

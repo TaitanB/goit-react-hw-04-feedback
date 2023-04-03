@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FeedbackBtn = styled.button`
   padding: 10px 20px;
-  background-color: rgb(85 99 143);
+  background-color: rgb(7 64 45);
   color: bisque;
   margin: 20px 20px;
   border: none;
@@ -18,6 +18,6 @@ export const FeedbackBtn = styled.button`
   :hover,
   :focus {
     scale: 0.9;
-    background-color: rgb(85 40 153);
+    background-color: rgb(36 105 106);
   }
 `;
